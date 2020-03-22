@@ -17,8 +17,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('dcs_dynamic_discriminator_map');
+        $treeBuilder = new TreeBuilder('dcs_dynamic_discriminator_map');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()

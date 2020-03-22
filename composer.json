@@ -15,12 +15,11 @@
         }
     ],
     "require": {
-        "php": ">=5.3",
+        "php": ">=7.1",
         "doctrine/orm": ">=2.2.3",
         "doctrine/doctrine-bundle": ">=1.2"
     },
     "autoload": {
-        "psr-0": { "DCS\\DynamicDiscriminatorMapBundle": "" }
-    },
-    "target-dir": "DCS/DynamicDiscriminatorMapBundle"
+        "psr-4": { "DCS\\DynamicDiscriminatorMapBundle\\": "" }
+    }
 }
