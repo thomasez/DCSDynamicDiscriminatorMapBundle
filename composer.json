@@ -15,9 +15,10 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": "^8.2",
         "doctrine/orm": ">=2.2.3",
-        "doctrine/doctrine-bundle": ">=1.2"
+        "doctrine/annotations": "^2.0",
+        "doctrine/doctrine-bundle": ">=2.13"
     },
     "autoload": {
         "psr-4": { "DCS\\DynamicDiscriminatorMapBundle\\": "" }
