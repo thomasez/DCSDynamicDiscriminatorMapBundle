@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.2",
         "doctrine/orm": ">=3.5.3",
         "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": ">=2.18"
