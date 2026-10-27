@@ -3,7 +3,7 @@
 namespace DCS\DynamicDiscriminatorMapBundle\Listener;
 
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
-use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
 
 class DoctrineEventListener
 {
@@ -22,17 +22,17 @@ class DoctrineEventListener
         $metadata = $event->getClassMetadata();
         $class = $metadata->getReflectionClass();
 
+
         if ($class === null) {
             $class = new \ReflectionClass($metadata->getName());
         }
 
         foreach ($this->mapping as $entityName => $map) {
             if ($class->getName() == $map['entity']) {
-                $reader = new AnnotationReader;
                 $discriminatorMap = array();
 
-                if (null !== $discriminatorMapAnnotation = $reader->getClassAnnotation($class, 'Doctrine\ORM\Mapping\DiscriminatorMap')) {
-                    $discriminatorMap = $discriminatorMapAnnotation->value;
+                if ($discriminatorMapAttributes = $class->getAttributes(DiscriminatorMap::class)[0]?->getArguments() ?? null) {
+                    $discriminatorMap = $discriminatorMapAttributes[0];
                 }
 
                 $discriminatorMap = array_merge($discriminatorMap, $map['map']);
